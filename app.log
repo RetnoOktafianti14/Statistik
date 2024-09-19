@@ -1,0 +1,86 @@
+2024-09-18 09:26:35,911 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:29:22,592 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:34:47,901 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:38:58,764 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:44:48,354 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:49:48,735 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:49:48,826 - ERROR - Error loading forecast data: "None of [Index(['Model', 'Rsquared', 'RMSE', 'MAPE', 'Ljung-Box-Q'], dtype='object')] are in the [columns]"
+2024-09-18 09:52:42,319 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:52:42,404 - ERROR - Error loading forecast data: "None of [Index(['Model', 'Rsquared', 'RMSE', 'MAPE', 'Ljung-Box-Q'], dtype='object')] are in the [columns]"
+2024-09-18 09:53:15,119 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:53:15,180 - ERROR - Error loading forecast data: "None of [Index(['Model', 'Rsquared', 'RMSE', 'MAPE', 'Ljung-Box-Q'], dtype='object')] are in the [columns]"
+2024-09-18 09:53:46,427 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:53:46,491 - ERROR - Error loading forecast data: "None of [Index(['Model', 'Rsquared', 'RMSE', 'MAPE', 'Ljung-Box-Q'], dtype='object')] are in the [columns]"
+2024-09-18 09:55:23,274 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:57:20,880 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:57:20,952 - ERROR - Error loading forecast data: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'combined_results_table'. (208) (SQLExecDirectW)")
+[SQL: SELECT * FROM combined_results_table]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 09:58:56,213 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 09:58:56,304 - ERROR - Error loading forecast data: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'combined_results_table'. (208) (SQLExecDirectW)")
+[SQL: SELECT * FROM combined_results_table]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 10:29:55,024 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:29:55,183 - ERROR - Error loading forecast data: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'combined_results_table'. (208) (SQLExecDirectW)")
+[SQL: SELECT * FROM combined_results_table]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 10:33:03,643 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:33:03,755 - ERROR - Error loading forecast data: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'combined_results_table'. (208) (SQLExecDirectW)")
+[SQL: SELECT * FROM combined_results_table]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 10:34:15,247 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:34:15,340 - ERROR - Error loading forecast data: Not an executable object: 'SELECT * FROM combined_results_table'
+2024-09-18 10:35:37,241 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:35:37,320 - ERROR - Error loading forecast data: Not an executable object: 'SELECT * FROM combined_results_table'
+2024-09-18 10:38:44,651 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:41:03,134 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:42:42,639 - INFO - Summary Table DataFrame shape: (64, 4)
+2024-09-18 10:42:42,639 - INFO - ARIMA Forecast Table DataFrame shape: (48, 4)
+2024-09-18 10:43:10,512 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:48:13,724 - INFO - Summary Table DataFrame shape: (64, 4)
+2024-09-18 10:48:13,724 - INFO - ARIMA Forecast Table DataFrame shape: (48, 4)
+2024-09-18 10:48:28,627 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:51:00,904 - INFO - Summary Table DataFrame shape: (64, 4)
+2024-09-18 10:51:00,904 - INFO - ARIMA Forecast Table DataFrame shape: (48, 4)
+2024-09-18 10:51:29,665 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:53:43,775 - INFO - Data successfully saved to 'summary_table'.
+2024-09-18 10:56:35,137 - INFO - Forecast data successfully saved to 'arima_forecast_table'.
+2024-09-18 10:59:50,305 - INFO - Forecast data successfully saved to 'arima_forecast_table'.
+2024-09-18 10:59:50,449 - INFO - Data successfully merged and saved to 'combined_results_table'.
+2024-09-18 10:59:50,557 - INFO - Data successfully saved to 'staging_table'.
+2024-09-18 11:07:47,008 - INFO - Forecast data successfully saved to 'arima_forecast_table'.
+2024-09-18 11:07:47,238 - INFO - Data successfully merged and saved to 'combined_results_table'.
+2024-09-18 11:07:47,470 - INFO - Data successfully saved to 'staging_table'.
+2024-09-18 11:15:05,229 - INFO - Forecast data successfully saved to 'arima_forecast_table'.
+2024-09-18 11:15:05,481 - INFO - Data successfully merged and saved to 'combined_results_table'.
+2024-09-18 11:15:05,766 - INFO - Data successfully saved to 'staging_table'.
+2024-09-18 11:19:05,734 - ERROR - Error during ARIMA processing: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'summary_table'. (208) (SQLExecDirectW)")
+[SQL: SELECT * FROM summary_table ORDER BY Date ASC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 11:19:05,829 - ERROR - Error merging and saving tables: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'summary_table'. (208) (SQLExecDirectW)")
+[SQL: 
+        SELECT *
+        FROM summary_table
+        UNION ALL
+        SELECT *
+        FROM arima_forecast_table
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 11:19:13,091 - ERROR - Error during ARIMA processing: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'summary_table'. (208) (SQLExecDirectW)")
+[SQL: SELECT * FROM summary_table ORDER BY Date ASC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 11:19:13,149 - ERROR - Error merging and saving tables: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'summary_table'. (208) (SQLExecDirectW)")
+[SQL: 
+        SELECT *
+        FROM summary_table
+        UNION ALL
+        SELECT *
+        FROM arima_forecast_table
+        ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 11:21:51,977 - INFO - Data successfully saved to '#summary_table'.
+2024-09-18 11:21:52,071 - ERROR - Error during ARIMA processing: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name '#summary_table'. (208) (SQLExecDirectW)")
+[SQL: SELECT * FROM #summary_table ORDER BY Date ASC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-09-18 13:21:09,565 - ERROR - Error loading columns: (pyodbc.InterfaceError) ('28000', "[28000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Login failed for user 'your_username'. (18456) (SQLDriverConnect); [28000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Login failed for user 'your_username'. (18456)")
+(Background on this error at: https://sqlalche.me/e/20/rvf5)
