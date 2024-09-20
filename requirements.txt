@@ -10,3 +10,4 @@ SQLAlchemy
 pyodbc
 scipy
 statsmodels
+streamlit_option_menu
