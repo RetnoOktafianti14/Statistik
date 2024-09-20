@@ -8,7 +8,7 @@ from scalingarima_module import scaling_arima_page
 import os
 
 # Cek path gambar logo
-logo_path = "D:/python/Psak_web/logo/logo_app.png"
+logo_path = "logo/logo_app.png"
 
 # Menampilkan logo aplikasi di sidebar
 with st.sidebar:
