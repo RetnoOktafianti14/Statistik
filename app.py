@@ -8,7 +8,19 @@ from scalingarima_module import scaling_arima_page
 import os
 
 # Cek path gambar logo
-logo_path = "logo/logo_app.png"
+logo_path = "D:/python/Psak_web/logo/logo_app.png"
+
+# CSS untuk latar belakang
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background-color: #D3D3D3;  /* Warna abu-abu */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Menampilkan logo aplikasi di sidebar
 with st.sidebar:
@@ -19,19 +31,17 @@ with st.sidebar:
 
     st.write("")  # Tambahkan spasi
     st.write("")  # Tambahkan spasi
-    # Judul menu sidebar
-    #st.title("Menu Navigasi")
 
     # Menggunakan option_menu untuk navigasi
     selected = option_menu(
         menu_title="PSAK71",
         options=["Home", "Korelasi", "Normalitas", "Regresi", "Forecasting MEV", "Scaling ARIMA"],
-        icons=["home", "report", "chart_with_upwards_trend", "chart_with_downwards_trend", "chart_with_downwards_trend", "expand-arrows-alt"],
+        icons=["house", "bar-chart", "check-square", "graph-up", "graph-up", "calculator"],
         menu_icon="list-task",
         default_index=0,
         orientation="vertical",
         styles={
-            "container": {"padding": "0!important", "background-color": "#fafafa"},
+            "container": {"padding": "0!important", "background-color": "#D3D3D3"},
             "icon": {"color": "black", "font-size": "20px"},
             "nav-link": {
                 "font-size": "16px",
