@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 from correlation_module import correlation_page
-from normality_module import normality_page
+from normality_module import normalization_page
 from regression_module import regression_page
 from forecasting_module import forecasting_mev_page
 from scalingarima_module import scaling_arima_page
@@ -34,9 +34,9 @@ with st.sidebar:
 
     # Menggunakan option_menu untuk navigasi
     selected = option_menu(
-        menu_title="PSAK71",
-        options=["Home", "Korelasi", "Normalitas", "Regresi", "Forecasting MEV", "Scaling ARIMA"],
-        icons=["house", "bar-chart", "check-square", "graph-up", "graph-up", "calculator"],
+        menu_title="Psak 71",
+        options=["Home", "Correlation", "Normality", "Regression", "Forecasting MEV", "Scaling ARIMA"],
+        icons=["house", "bar-chart", "check-square", "graph-up", "activity", "calculator"],
         menu_icon="list-task",
         default_index=0,
         orientation="vertical",
@@ -58,11 +58,11 @@ def display_page(menu):
     if menu == "Home":
         st.title("Selamat datang di Aplikasi Data Analysis!")
         st.write("Pilih salah satu opsi dari menu di sebelah kiri.")
-    elif menu == "Korelasi":
+    elif menu == "Correlation":
         correlation_page()
-    elif menu == "Normalitas":
-        normality_page()
-    elif menu == "Regresi":
+    elif menu == "Normality":
+        normalization_page()
+    elif menu == "Regression":
         regression_page()
     elif menu == "Forecasting MEV":
         forecasting_mev_page()
