@@ -178,8 +178,8 @@ def process_arima():
         if model_results:
             results_df = pd.DataFrame(model_results)
             results_df.sort_values(by="RMSE", ascending=True, inplace=True)
-            save_forecast_to_summary_table(results_df)
-            merge_and_save()
+            save_forecast_to_summary_results(results_df)
+            #merge_and_save()
             return results_df
         else:
             st.warning("No valid ARIMA models were found.")
@@ -190,7 +190,7 @@ def process_arima():
         st.error(f"Error during ARIMA processing: {e}")
         return None
 
-def save_forecast_to_summary_table(results_df):
+def save_forecast_to_summary_results(results_df):
     try:
         engine = get_engine()
         results_df.to_sql('arima_forecast_results', engine, if_exists='replace', index=False)
@@ -198,41 +198,77 @@ def save_forecast_to_summary_table(results_df):
     except Exception as e:
         logging.error(f"Error saving forecast results: {e}")
 
-#def process_arima():
-    #try:
-        #engine = get_engine()
-        #query = "SELECT * FROM summary_table ORDER BY Date ASC;"
-        #df = pd.read_sql(query, engine)
+def process_arima2():
+    try:
+        engine = get_engine()
+        query = "SELECT * FROM summary_table ORDER BY Date ASC;"
+        df = pd.read_sql(query, engine)
 
-        #df['Date'] = pd.to_datetime(df['Date'])
-        #df.set_index('Date', inplace=True)
-        #df.drop(columns=['Date'], inplace=True, errors='ignore')
+        # Pastikan kolom 'Date' dalam format datetime dan jadikan sebagai index
+        df['Date'] = pd.to_datetime(df['Date'])
+        df.set_index('Date', inplace=True)
 
-        #target_variables = df.columns.tolist()
-        #forecasts = []
+        # Menghapus kolom 'Date' jika masih ada (untuk berjaga-jaga)
+        df.drop(columns=['Date'], inplace=True, errors='ignore')
 
-        #for target in target_variables:
-            #train_size = int(len(df) * 0.05)
-            #train, test = df[target][:train_size], df[target][train_size:]
+        # List variabel target yang akan di-forecast
+        target_variables = df.columns.tolist()
+        forecasts = []
 
-            #model = ARIMA(train, order=(2, 1, 2))  # Sesuaikan parameter (p, d, q) sesuai kebutuhan
-            #model_fit = model.fit()
+        # Proyeksi selama 48 bulan (4 tahun)
+        forecast_periods = 48
 
-            #forecast_periods = 48
-            #forecast_index = pd.date_range(start=df.index.max() + pd.DateOffset(days=1), periods=forecast_periods, freq='ME')
-            #forecast = model_fit.get_forecast(steps=forecast_periods).predicted_mean
-            #forecast_df = pd.DataFrame({
-                #'Date': forecast_index,
-                #f'{target}_forecast': forecast
-            #}).set_index('Date')
+        for target in target_variables:
+            # Tentukan jumlah data yang akan digunakan sebagai training (misalnya 95% dari data)
+            train_size = int(len(df) * 0.05)
+            train, test = df[target][:train_size], df[target][train_size:]
 
-            #forecasts.append(forecast_df)
+            # Buat model ARIMA, disesuaikan dengan data (order=(2, 1, 2) dapat diubah sesuai kebutuhan)
+            model = ARIMA(train, order=(2, 0, 2))
+            model_fit = model.fit()
 
-        #forecast_results = pd.concat(forecasts, axis=1)
-        #save_forecast_to_summary_table(forecast_results)
-        #merge_and_save()
-    #except Exception as e:
-        #logging.error(f"Error during ARIMA processing: {e}")
+            # Buat index tanggal untuk 48 bulan ke depan (asumsi data bulanan)
+            forecast_index = pd.date_range(start=df.index.max() + pd.DateOffset(months=1), periods=forecast_periods, freq='M')
+
+            # Lakukan forecasting selama 48 bulan
+            forecast = model_fit.get_forecast(steps=forecast_periods).predicted_mean
+
+            # Simpan hasil forecast dalam DataFrame
+            forecast_df = pd.DataFrame({
+                'Date': forecast_index,
+                f'{target}_forecast': forecast
+            }).set_index('Date')
+
+            # Gabungkan hasil forecast dari setiap variabel
+            forecasts.append(forecast_df)
+
+        # Gabungkan semua hasil forecast untuk setiap variabel menjadi satu DataFrame
+        forecast_results = pd.concat(forecasts, axis=1)
+
+        # Simpan hasil forecast ke dalam tabel summary_table
+        save_forecast_to_summary_table(forecast_results)
+        merge_and_save()
+
+        # Tampilkan hasil forecast dalam aplikasi
+        st.dataframe(forecast_results)
+
+    except Exception as e:
+        st.error(f"Error during ARIMA processing: {e}")
+
+
+def save_forecast_to_summary_table(forecast_results):
+    try:
+        engine = get_engine()
+        if forecast_results.empty:
+            raise ValueError("Forecast results DataFrame is empty.")
+        
+        forecast_results.to_sql('arima_forecast_table', engine, if_exists='replace', index=True)
+        logging.info("Forecast data successfully saved to 'arima_forecast_table'.")
+    except Exception as e:
+        logging.error(f"Error saving forecast data: {e}")
+        st.error(f"Error saving forecast data: {e}")
+
+
 def regression_page():
     st.title("Regresi dan ARIMA")
 
@@ -278,6 +314,13 @@ def regression_page():
                         best_arima_model = arima_results_df.nsmallest(1, 'RMSE')
                         st.subheader("Model ARIMA Terbaik")
                         st.write(best_arima_model)
+
+                    
+                # Call process_arima2 and display results
+                st.subheader("Hasil Proses ARIMA 2")
+                arima2_results_df = process_arima2()
+                if arima2_results_df is not None:
+                    st.write(arima2_results_df)
 
 if __name__ == "__main__":
     regression_page()
